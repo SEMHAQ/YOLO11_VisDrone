@@ -27,7 +27,7 @@ from ultralytics import YOLO
 # YOLO13配置文件路径：ultralytics/cfg/models/13 预训练权重在这里下:https://github.com/iMoonLab/yolov13
 
 if __name__ == '__main__':
-    model = YOLO('ultralytics/cfg/models/11/yolo11-bifpn.yaml') # YOLO11
+    model = YOLO('ultralytics/cfg/models/11/yolo11-bifpn-GLSA.yaml') # YOLO11
     # model.load('yolo11n.pt') # loading pretrain weights
     model.train(data='dataset/data.yaml',
                 cache=False,
@@ -43,5 +43,5 @@ if __name__ == '__main__':
                 # amp=False, # close amp | loss出现nan可以关闭amp
                 # fraction=0.2,
                 project='runs/train',
-                name='bifpn',
+                name='bifpn-GLSA',
                 )
