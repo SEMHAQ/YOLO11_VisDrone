@@ -1,2 +1,2 @@
-# YOLOv11_VisDrone
+# YOLO11_VisDrone
 YOLO11改进模型在VisDrone数据集上的表现
