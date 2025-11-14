@@ -17,7 +17,7 @@ def get_weight_size(path):
     return f'{stats.st_size / 1024 / 1024:.1f}'
 
 if __name__ == '__main__':
-    model_path = 'runs/train/bifpn-GLSA/weights/best.pt'
+    model_path = 'runs/train/GLSA-LAWDS/weights/best.pt'
     model = YOLO(model_path) # 选择训练好的权重路径
     result = model.val(data='dataset/data.yaml',
                         split='val', # split可以选择train、val、test 根据自己的数据集情况来选择.
@@ -27,7 +27,7 @@ if __name__ == '__main__':
                         # rect=False,
                         # save_json=True, # if you need to cal coco metrice
                         project='runs/val',
-                        name='bifpn-GLSA',
+                        name='GLSA-LAWDS',
                         )
     
     if model.task == 'detect': # 仅目标检测任务适用 需要改别的任务可以看：https://www.bilibili.com/video/BV1dBQDY6Ec5/
