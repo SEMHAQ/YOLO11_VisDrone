@@ -19,14 +19,14 @@ def get_weight_size(path):
 if __name__ == '__main__':
     model_path = 'runs/train/GLSA-LAWDS/weights/best.pt'
     model = YOLO(model_path) # 选择训练好的权重路径
-    result = model.val(data='dataset/data.yaml',
+    result = model.val(data='ultralytics/cfg/datasets/coco.yaml',
                         split='val', # split可以选择train、val、test 根据自己的数据集情况来选择.
                         imgsz=640,
                         batch=16,
                         # iou=0.7,
                         # rect=False,
                         # save_json=True, # if you need to cal coco metrice
-                        project='runs/val',
+                        project='runs/val-coco',
                         name='GLSA-LAWDS',
                         )
     
