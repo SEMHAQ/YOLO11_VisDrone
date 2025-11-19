@@ -1,0 +1,184 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="BGL-YOLO11" name="BGL-YOLO11">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Input -->
+        <mxCell id="input" value="Input&#10;640×640×3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="40" y="260" width="120" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Stem -->
+        <mxCell id="stem" value="Stem&#10;Conv 3×3 s=2,64&#10;Conv 3×3 s=2,128" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="200" y="260" width="160" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Stage1 + LAWDS -->
+        <mxCell id="stage1" value="Stage1&#10;C3k2×2, C=256" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="400" y="210" width="160" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="lawds1" value="LAWDS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="580" y="220" width="80" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Stage2 + LAWDS -->
+        <mxCell id="stage2" value="Stage2&#10;C3k2×2, C=512" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="400" y="330" width="160" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="lawds2" value="LAWDS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="580" y="340" width="80" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Stage3 + LAWDS -->
+        <mxCell id="stage3" value="Stage3&#10;C3k2×2 (shortcut), C=512" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="400" y="450" width="200" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="lawds3" value="LAWDS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="620" y="460" width="80" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Stage4 + SPPF + C2PSA -->
+        <mxCell id="stage4" value="Stage4&#10;C3k2×2, C=1024" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="400" y="90" width="160" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="sppf" value="SPPF" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="580" y="90" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="c2psa" value="C2PSA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="680" y="90" width="80" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- GLSA blocks on three scales -->
+        <mxCell id="glsa_small" value="GLSA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="760" y="340" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="glsa_mid" value="GLSA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="760" y="220" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="glsa_top" value="GLSA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="780" y="90" width="80" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- BiFPN block -->
+        <mxCell id="bifpn" value="BiFPN Neck&#10;Upsample + Fusion + C3k2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="900" y="200" width="200" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- Detect heads -->
+        <mxCell id="detect_s" value="Detect Head&#10;Small objects" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="220" width="140" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="detect_m" value="Detect Head&#10;Medium objects" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="310" width="140" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="detect_l" value="Detect Head&#10;Large objects" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="130" width="140" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Output -->
+        <mxCell id="output" value="Detection Results&#10;(bbox, cls, conf)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1330" y="230" width="180" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend" value="Legend" style="swimlane;childLayout=stackLayout;rounded=1;horizontal=1;resizeParent=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="260" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg_backbone" value="Backbone (YOLO11n)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="legend">
+          <mxGeometry x="10" y="20" width="220" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg_lawds" value="LAWDS module" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="legend">
+          <mxGeometry x="10" y="45" width="220" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg_glsa" value="GLSA module" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="legend">
+          <mxGeometry x="10" y="70" width="220" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg_bifpn" value="BiFPN neck" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="legend">
+          <mxGeometry x="10" y="95" width="220" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg_detect" value="Detection heads" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="legend">
+          <mxGeometry x="10" y="120" width="220" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- Edges -->
+        <mxCell id="e_input_stem" edge="1" parent="1" source="input" target="stem">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_stem_stage1" edge="1" parent="1" source="stem" target="stage1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_stage1_lawds1" edge="1" parent="1" source="stage1" target="lawds1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_lawds1_stage2" edge="1" parent="1" source="lawds1" target="stage2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_stage2_lawds2" edge="1" parent="1" source="stage2" target="lawds2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_lawds2_stage3" edge="1" parent="1" source="lawds2" target="stage3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_stage3_lawds3" edge="1" parent="1" source="stage3" target="lawds3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_lawds3_stage4" edge="1" parent="1" source="lawds3" target="stage4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_stage4_sppf" edge="1" parent="1" source="stage4" target="sppf">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_sppf_c2psa" edge="1" parent="1" source="sppf" target="c2psa">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- connections to GLSA (from stage2, lawds2, c2psa approximated) -->
+        <mxCell id="e_stage2_glsa_small" edge="1" parent="1" source="stage2" target="glsa_small">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_stage1_glsa_mid" edge="1" parent="1" source="stage1" target="glsa_mid">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_c2psa_glsa_top" edge="1" parent="1" source="c2psa" target="glsa_top">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- GLSA to BiFPN -->
+        <mxCell id="e_glsa_small_bifpn" edge="1" parent="1" source="glsa_small" target="bifpn">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_glsa_mid_bifpn" edge="1" parent="1" source="glsa_mid" target="bifpn">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_glsa_top_bifpn" edge="1" parent="1" source="glsa_top" target="bifpn">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- BiFPN to Detect heads -->
+        <mxCell id="e_bifpn_detect_s" edge="1" parent="1" source="bifpn" target="detect_s">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_bifpn_detect_m" edge="1" parent="1" source="bifpn" target="detect_m">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_bifpn_detect_l" edge="1" parent="1" source="bifpn" target="detect_l">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Detect heads to Output -->
+        <mxCell id="e_detect_s_output" edge="1" parent="1" source="detect_s" target="output">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_detect_m_output" edge="1" parent="1" source="detect_m" target="output">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_detect_l_output" edge="1" parent="1" source="detect_l" target="output">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

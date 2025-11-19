@@ -1,0 +1,221 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="BGL-YOLO11-v2" name="BGL-YOLO11-v2">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Big dashed regions -->
+        <mxCell id="backbone_box" value="Backbone" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;strokeColor=#000000;align=center;verticalAlign=top;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="230" height="540" as="geometry"/>
+        </mxCell>
+        <mxCell id="neck_box" value="Neck" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;strokeColor=#000000;align=center;verticalAlign=top;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="60" width="360" height="540" as="geometry"/>
+        </mxCell>
+        <mxCell id="head_box" value="Detect head" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;strokeColor=#000000;align=center;verticalAlign=top;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="60" width="220" height="540" as="geometry"/>
+        </mxCell>
+
+        <!-- Input block -->
+        <mxCell id="input" value="Input" style="shape=rectangle;rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontStyle=1" vertex="1" parent="backbone_box">
+          <mxGeometry x="70" y="20" width="80" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Backbone conv / C3k2 / LAWDS stack -->
+        <mxCell id="conv1" value="Conv" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#cfe2f3;strokeColor=#6d9eeb;" vertex="1" parent="backbone_box">
+          <mxGeometry x="70" y="80" width="80" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="conv2" value="Conv" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#cfe2f3;strokeColor=#6d9eeb;" vertex="1" parent="backbone_box">
+          <mxGeometry x="70" y="120" width="80" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="c3k2_1" value="C3k2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9ead3;strokeColor=#38761d;" vertex="1" parent="backbone_box">
+          <mxGeometry x="70" y="160" width="80" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="conv3" value="Conv" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#cfe2f3;strokeColor=#6d9eeb;" vertex="1" parent="backbone_box">
+          <mxGeometry x="70" y="200" width="80" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="c3k2_2" value="C3k2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9ead3;strokeColor=#38761d;" vertex="1" parent="backbone_box">
+          <mxGeometry x="70" y="240" width="80" height="30" as="geometry"/>
+        </mxCell>
+        <!-- LAWDS 1 -->
+        <mxCell id="lawds1" value="LAWDS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f4cccc;strokeColor=#cc0000;" vertex="1" parent="backbone_box">
+          <mxGeometry x="160" y="240" width="80" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="conv4" value="Conv" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#cfe2f3;strokeColor=#6d9eeb;" vertex="1" parent="backbone_box">
+          <mxGeometry x="70" y="280" width="80" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="c3k2_3" value="C3k2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9ead3;strokeColor=#38761d;" vertex="1" parent="backbone_box">
+          <mxGeometry x="70" y="320" width="80" height="30" as="geometry"/>
+        </mxCell>
+        <!-- LAWDS 2 -->
+        <mxCell id="lawds2" value="LAWDS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f4cccc;strokeColor=#cc0000;" vertex="1" parent="backbone_box">
+          <mxGeometry x="160" y="320" width="80" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="conv5" value="Conv" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#cfe2f3;strokeColor=#6d9eeb;" vertex="1" parent="backbone_box">
+          <mxGeometry x="70" y="360" width="80" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="c3k2_4" value="C3k2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9ead3;strokeColor=#38761d;" vertex="1" parent="backbone_box">
+          <mxGeometry x="70" y="400" width="100" height="30" as="geometry"/>
+        </mxCell>
+        <!-- LAWDS 3 -->
+        <mxCell id="lawds3" value="LAWDS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f4cccc;strokeColor=#cc0000;" vertex="1" parent="backbone_box">
+          <mxGeometry x="180" y="400" width="80" height="30" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="sppf" value="SPPF" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="backbone_box">
+          <mxGeometry x="90" y="440" width="60" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="c2psa" value="C2PSA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce5cd;strokeColor=#e69138;" vertex="1" parent="backbone_box">
+          <mxGeometry x="80" y="480" width="80" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- GLSA on three scales (in neck box, left side) -->
+        <mxCell id="glsa_low" value="GLSA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9ead3;strokeColor=#38761d;" vertex="1" parent="neck_box">
+          <mxGeometry x="40" y="260" width="80" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="glsa_mid" value="GLSA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9ead3;strokeColor=#38761d;" vertex="1" parent="neck_box">
+          <mxGeometry x="40" y="200" width="80" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="glsa_top" value="GLSA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9ead3;strokeColor=#38761d;" vertex="1" parent="neck_box">
+          <mxGeometry x="40" y="140" width="80" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- BiFPN + C3k2 structure (three levels) -->
+        <mxCell id="bifpn_top" value="BiFPN + C3k2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe599;strokeColor=#cc7a00;" vertex="1" parent="neck_box">
+          <mxGeometry x="150" y="120" width="110" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="bifpn_mid" value="BiFPN + C3k2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe599;strokeColor=#cc7a00;" vertex="1" parent="neck_box">
+          <mxGeometry x="150" y="220" width="110" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="bifpn_low" value="BiFPN + C3k2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe599;strokeColor=#cc7a00;" vertex="1" parent="neck_box">
+          <mxGeometry x="150" y="320" width="110" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Upsample and Conv blocks in neck to mimic style -->
+        <mxCell id="up1" value="Upsample" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f4cccc;strokeColor=#cc0000;" vertex="1" parent="neck_box">
+          <mxGeometry x="110" y="280" width="70" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="up2" value="Upsample" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f4cccc;strokeColor=#cc0000;" vertex="1" parent="neck_box">
+          <mxGeometry x="110" y="380" width="70" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="neck_conv1" value="Conv" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#cfe2f3;strokeColor=#6d9eeb;" vertex="1" parent="neck_box">
+          <mxGeometry x="270" y="180" width="70" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="neck_conv2" value="Conv" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#cfe2f3;strokeColor=#6d9eeb;" vertex="1" parent="neck_box">
+          <mxGeometry x="270" y="280" width="70" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Detect heads in head_box -->
+        <mxCell id="detect_top" value="Detect" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ead1dc;strokeColor=#a64d79;" vertex="1" parent="head_box">
+          <mxGeometry x="40" y="140" width="90" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="detect_mid" value="Detect" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ead1dc;strokeColor=#a64d79;" vertex="1" parent="head_box">
+          <mxGeometry x="40" y="240" width="90" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="detect_low" value="Detect" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ead1dc;strokeColor=#a64d79;" vertex="1" parent="head_box">
+          <mxGeometry x="40" y="340" width="90" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Edges inside backbone -->
+        <mxCell id="e_in_conv1" edge="1" parent="backbone_box" source="input" target="conv1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_conv1_conv2" edge="1" parent="backbone_box" source="conv1" target="conv2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_conv2_c3k2_1" edge="1" parent="backbone_box" source="conv2" target="c3k2_1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_c3k2_1_conv3" edge="1" parent="backbone_box" source="c3k2_1" target="conv3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_conv3_c3k2_2" edge="1" parent="backbone_box" source="conv3" target="c3k2_2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_c3k2_2_lawds1" edge="1" parent="backbone_box" source="c3k2_2" target="lawds1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_lawds1_conv4" edge="1" parent="backbone_box" source="lawds1" target="conv4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_conv4_c3k2_3" edge="1" parent="backbone_box" source="conv4" target="c3k2_3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_c3k2_3_lawds2" edge="1" parent="backbone_box" source="c3k2_3" target="lawds2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_lawds2_conv5" edge="1" parent="backbone_box" source="lawds2" target="conv5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_conv5_c3k2_4" edge="1" parent="backbone_box" source="conv5" target="c3k2_4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_c3k2_4_lawds3" edge="1" parent="backbone_box" source="c3k2_4" target="lawds3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_lawds3_sppf" edge="1" parent="backbone_box" source="lawds3" target="sppf">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_sppf_c2psa" edge="1" parent="backbone_box" source="sppf" target="c2psa">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- taps from backbone to neck (three scales) -->
+        <mxCell id="tap_low" edge="1" parent="1" source="c3k2_3" target="glsa_low">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="tap_mid" edge="1" parent="1" source="c3k2_2" target="glsa_mid">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="tap_top" edge="1" parent="1" source="c2psa" target="glsa_top">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- GLSA to BiFPN -->
+        <mxCell id="e_glsa_low_bifpn" edge="1" parent="neck_box" source="glsa_low" target="bifpn_low">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_glsa_mid_bifpn" edge="1" parent="neck_box" source="glsa_mid" target="bifpn_mid">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_glsa_top_bifpn" edge="1" parent="neck_box" source="glsa_top" target="bifpn_top">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- BiFPN vertical / upsample / conv connections (stylized) -->
+        <mxCell id="e_bifpn_low_up2" edge="1" parent="neck_box" source="bifpn_low" target="up2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_up2_bifpn_mid" edge="1" parent="neck_box" source="up2" target="bifpn_mid">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_bifpn_mid_up1" edge="1" parent="neck_box" source="bifpn_mid" target="up1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_up1_bifpn_top" edge="1" parent="neck_box" source="up1" target="bifpn_top">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_bifpn_mid_conv1" edge="1" parent="neck_box" source="bifpn_mid" target="neck_conv1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_bifpn_low_conv2" edge="1" parent="neck_box" source="bifpn_low" target="neck_conv2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- BiFPN to Detect heads -->
+        <mxCell id="e_bifpn_top_detect_top" edge="1" parent="1" source="bifpn_top" target="detect_top">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_bifpn_mid_detect_mid" edge="1" parent="1" source="bifpn_mid" target="detect_mid">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_bifpn_low_detect_low" edge="1" parent="1" source="bifpn_low" target="detect_low">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
