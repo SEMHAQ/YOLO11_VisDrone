@@ -27,9 +27,9 @@ from ultralytics import YOLO
 # YOLO13配置文件路径：ultralytics/cfg/models/13 预训练权重在这里下:https://github.com/iMoonLab/yolov13
 
 if __name__ == '__main__':
-    model = YOLO('ultralytics/cfg/models/11/yolo11-bifpn-GLSA-LAWDS.yaml') # YOLO11
-    model.load('yolo11n.pt') # loading pretrain weights
-    model.train(data='ultralytics/cfg/datasets/kitti.yaml',
+    model = YOLO('ultralytics/cfg/models/v9/yolov9t.yaml') # YOLO11
+    model.load('yolov9t.pt') # loading pretrain weights
+    model.train(data='dataset/data.yaml',
                 cache=False,
                 imgsz=640,
                 epochs=150,
@@ -42,6 +42,6 @@ if __name__ == '__main__':
                 # resume=True, # 断点续训,YOLO初始化时选择last.pt,不懂就在百度云.txt找断点续训的视频
                 # amp=False, # close amp | loss出现nan可以关闭amp
                 # fraction=0.2,
-                project='runs/train-kitti',
-                name='bifpn-GLSA-LAWDS',
+                project='runs/train-v9',
+                name='v9',
                 )
