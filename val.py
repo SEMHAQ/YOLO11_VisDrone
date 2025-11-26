@@ -18,7 +18,7 @@ def get_weight_size(path):
 
 if __name__ == '__main__':
     model_path = 'runs/train-v10/v10/weights/best.pt'
-    model = YOLO('yolov10n.pt') # 选择训练好的权重路径
+    model = YOLO(model_path) # 选择训练好的权重路径
     result = model.val(data='dataset/data.yaml',
                         split='val', # split可以选择train、val、test 根据自己的数据集情况来选择.
                         imgsz=640,
